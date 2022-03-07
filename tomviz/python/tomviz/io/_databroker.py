@@ -1,5 +1,6 @@
 import os
 import numpy as np
+from tiled.client import show_logs
 
 import tomviz.utils
 
@@ -11,6 +12,7 @@ TILED_URL = os.getenv("TILED_URL", DEFAULT_URL)
 try:
     from tiled.client import from_uri
     c = from_uri(TILED_URL, "dask")
+    show_logs()
     from databroker import catalog
     from databroker.queries import TimeRange
     _installed = True
